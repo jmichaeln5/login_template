@@ -1,0 +1,47 @@
+<%= form_with(model: @user, local: true) do |form| %>
+
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this @user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :email %>
+    <br>
+    <%= form.text_field :email, id: :user_email%>
+  </div>
+<br>
+
+  <div class="field">
+    <%= form.label :password %>
+    <br>
+    <%= form.password_field :password, id: :user_password %>
+  </div>
+<br>
+
+  <div class="field">
+    <%= form.label :password, "Password Confirmation" %>
+    <br>
+    <%= form.password_field :password_confirmation, id: :user_password %>
+  </div>
+<br>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<br>
+
+  <td><%= link_to 'Deactivate Account', {:controller=>:users,:action=>:destroy, :id=>@user}, :method=>:delete, data: { confirm: 'Are you sure you would like to deactivate your account forever? Once deactivated it can never be recovered.' }, class:"btn btn-sm btn-danger", :style => "color: #f8f8f8;" %></td>
+
+  <hr>
+  <br>

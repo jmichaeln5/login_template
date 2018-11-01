@@ -1,0 +1,41 @@
+<div class="card">
+  <br>
+
+  <h1 class="text-center">Signup</h1>
+
+  <div class="container">
+    <hr>
+  </div>
+
+<br>
+
+  <%= form_for :user, url: '/users' do |f| %>
+
+      <div class="form-group">
+      <strong>Email:</strong>  <%= f.text_field :email, placeholder: "Enter your Email" %>
+      </div>
+
+      <div class="form-group">
+        <strong>Password:</strong><%= f.password_field :password, placeholder: "Password" %>
+      </div>
+
+      <div class="form-group">
+            <strong>Confirm Password:</strong>  <%= f.password_field :password_confirmation, placeholder: "Confirm password" %>
+      </div>
+
+      <br>
+       <center class="submit">
+        <%= f.submit "Submit", class:"btn btn-success" %>
+      </center>
+      <br>
+
+      <small>
+        Already have an account? <%= link_to "Click Here to Login.", login_path %>
+      </small>
+
+      <br>
+  <% end %>
+
+<br>
+
+</div>
